@@ -1,0 +1,17 @@
+{% extends "FOSUserBundle::login-layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+
+          <div class="col-md-12">
+
+              <div class="login-panel panel panel-default">
+                      <div class="panel-body alert-success">
+                      {{ 'resetting.check_email'|trans({'%email%': email}) }}
+                </div>
+          </div>
+      </div>
+{# 1326716189 #}
+{% endblock %}

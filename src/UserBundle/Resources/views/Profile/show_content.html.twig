@@ -1,0 +1,48 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li>Profile</li>
+
+</ul>
+<!-- END BREADCRUMB -->
+
+
+    <div class="row" style="transform: translateY(20%);">
+        <div class="col-md-10 col-md-offset-3 ">
+              <div class="col-lg-6 col-sm-10">
+
+                      <div class="card hovercard">
+                          <div class="cardheader">
+
+                          </div>
+                          <div class="avatar">
+                              <img alt=""src="{{asset('html/assets/images/users/avatar.jpg')}}">
+                          </div>
+                          <div class="info">
+                              <div class="desc"><label>{{ 'profile.show.username'|trans }} </label> : {{ user.username }}</div>
+                              <div class="desc"><label>{{ 'profile.show.email'|trans }}</label> :  {{ user.email }}</div>
+                              <div class="desc"><label>Dernière Connection </label> :  {{ user.lastLogin.date | date("d/m/Y \\à G:i") }}</div>
+                              {# if password is requested #}
+                              {% if   user.passwordRequestedAt  is not null %}
+                              <div class="desc"><label>Mot de passe changé le </label> :  {{ user.passwordRequestedAt.date | date("d/m/Y \\à G:i")}}</div>
+                              {% endif %}
+                              {# if user expired #}
+                              {% if   user.expiresAt  is not null %}
+                                <div class="desc"><label>Votre compte exipre le </label> :  {{ user.expiresAt.date  | date("d/m/Y \\à G:i") }}</div>
+                              {% endif %}
+                          </div>
+                          <div class="bottom">
+                              <a class="btn btn-warning" href="{{path('fos_user_profile_edit')}}">
+                                  <i class="fa fa-edit fa-lg"> Modier Profile</i>
+                              </a>
+                              <a class="btn btn-danger " rel="publisher"
+                                 href="{{path('fos_user_change_password')}}">
+                                  <i class="fa fa-key fa-lg"></i> changer mot de passe
+                              </a>
+
+                          </div>
+                      </div>
+
+                  </div>
+            </div>
+            </div>

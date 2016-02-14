@@ -1,0 +1,25 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="login-title">
+  <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" >
+    <div class="form-group">
+
+          <div id="fos_user_resetting_form">
+            <div>
+              <label for="fos_user_resetting_form_plainPassword_first" class="required">New password</label>
+              {{ form_errors(form.plainPassword.first) }}
+              <input class="form-control" type="password" id="fos_user_resetting_form_plainPassword_first" name="fos_user_resetting_form[plainPassword][first]" required="required">
+            </div>
+              <div>
+                <label for="fos_user_resetting_form_plainPassword_second" class="required">Repeat new password</label>
+                <input class="form-control" type="password" id="fos_user_resetting_form_plainPassword_second" name="fos_user_resetting_form[plainPassword][second]" required="required">
+              </div>
+                <input class="form-control" type="hidden" id="fos_user_resetting_form__token" name="fos_user_resetting_form[_token]" value="Oqrk75-27Ybf5MILTBmmy1OxoAcOBKpdY3QwoFBDLRs">
+              </div>
+      </div>
+    <div class="form-group">
+      <input type="submit" value="{{ 'resetting.reset.submit'|trans }}"  class="btn btn-lg btn-success btn-block"/>
+    </div>
+  {{ form_row(form._token) }}
+  </form>
+</div>
